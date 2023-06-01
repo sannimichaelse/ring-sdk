@@ -8,7 +8,7 @@ export class RequestClient {
 
   constructor(baseUrl: string, headers?: any) {
     this.httpClient = axios.create({
-      headers,
+      ...headers,
     });
     this.errorMiddleware = new ErrorHandlingMiddleware();
     this.baseUrl = baseUrl;
@@ -21,9 +21,6 @@ export class RequestClient {
   async makeRequest<T>(config: AxiosRequestConfig): Promise<T> {
     try {
       const completeUrl = this.getCompleteUrl(config.url!);
-      console.log('completeUrl')
-      console.log(completeUrl)
-      console.log(config.headers)
       const response: AxiosResponse<T> = await this.httpClient({
         ...config,
         url: completeUrl,
