@@ -1,4 +1,3 @@
-import { NotFoundError } from "../utils/errorHandlingMiddleware";
 import { QuoteResponse, Quote } from "../models/quote";
 import { RequestClient } from "./RequestClient";
 
@@ -37,9 +36,6 @@ export class QuoteAPIService implements QuoteService {
       const quotes = this.mapResponseToQuotes(quoteResponse);
       return quotes[0];
     } catch (error) {
-      if (error instanceof NotFoundError) {
-        return null;
-      }
       throw error;
     }
   }
@@ -64,9 +60,6 @@ export class QuoteAPIService implements QuoteService {
       const quotes = this.mapResponseToQuotes(quoteResponse);
       return quotes;
     } catch (error) {
-      if (error instanceof NotFoundError) {
-        return null;
-      }
       throw error;
     }
   }

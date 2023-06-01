@@ -37,9 +37,6 @@ export class MovieAPIService implements MovieService {
       const movies = this.mapResponseToMovies(movieResponse);
       return movies[0];
     } catch (error) {
-      if (error instanceof NotFoundError) {
-        return null;
-      }
       throw error;
     }
   }
@@ -55,9 +52,6 @@ export class MovieAPIService implements MovieService {
       const movies = this.mapResponseToMovies(movieResponse);
       return movies;
     } catch (error) {
-      if (error instanceof NotFoundError) {
-        return null;
-      }
       throw error;
     }
   }
