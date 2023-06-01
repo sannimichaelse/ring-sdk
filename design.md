@@ -40,4 +40,7 @@ Here are the design decisions made during the development of the Ring SDK:
 
 - **Request Client**: The SDK uses a RequestClient class to handle HTTP requests to the API. This abstraction allows for easy swapping of underlying HTTP libraries or configurations.
 
-- **Use of Promises**: The SDK uses Promises to handle asynchronous operations, allowing for better control flow and error handling using async/await syntax.
+
+## Improvements
+
+- Add support for filters and pagination

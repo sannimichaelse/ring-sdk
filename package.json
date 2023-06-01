@@ -1,6 +1,6 @@
 {
   "name": "ring-sdk",
-  "version": "1.0.10",
+  "version": "1.0.14",
   "description": "SDK for the rings api",
   "keywords": [
     "typescript",

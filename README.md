@@ -1,12 +1,18 @@
 # Ring SDK
 
-The Ring SDK is a JavaScript library that provides a convenient interface for interacting with the Ring API. It allows you to fetch movie and quote data from the API and perform various operations.
+The Ring SDK is a Typescript library that provides a convenient interface for interacting with the Ring API. It allows you to fetch movie and quote data from the API and perform various operations.
 
 ## Installation
 
 To use the Ring SDK in your project, you can install it via npm:
 
 `npm install ring-sdk`
+
+## Test
+
+To run the tests
+
+`npm run test`
 
 ## Usage
 
