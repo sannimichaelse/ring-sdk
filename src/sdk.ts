@@ -1,5 +1,5 @@
 import { RequestInit } from "node-fetch";
-import { MoviesAPI, QuotesAPI } from './api';
+import { MoviesAPI, QuotesAPI } from "./api";
 import { RequestClient } from "./services/RequestClient";
 import { MovieAPIService } from "./services/MovieApiService";
 import { QuoteAPIService } from "./services/QuoteApiService";

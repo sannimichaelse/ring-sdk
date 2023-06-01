@@ -1,2 +1,2 @@
-export * from './endpoints/movies';
-export * from './endpoints/quotes';
+export * from "./endpoints/movies";
+export * from "./endpoints/quotes";
