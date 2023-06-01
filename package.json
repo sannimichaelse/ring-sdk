@@ -1,6 +1,6 @@
 {
   "name": "ring-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SDK for the rings api",
   "keywords": [
     "typescript",
@@ -14,7 +14,7 @@
     "node": "19.8.1"
   },
   "license": "BSD-3-Clause",
-  "main": "parser.js",
+  "main": "dist/sdk.js",
   "files": [
     "dist/"
   ],
