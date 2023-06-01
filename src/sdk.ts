@@ -1,4 +1,4 @@
-import { RequestInit } from "node-fetch";
+import { AxiosRequestConfig } from "axios";
 import { MoviesAPI, QuotesAPI } from "./api";
 import { RequestClient } from "./services/RequestClient";
 import { MovieAPIService } from "./services/MovieApiService";
@@ -8,7 +8,7 @@ export class RingSDK {
   movies: MoviesAPI;
   quotes: QuotesAPI;
 
-  constructor(baseURL: string, options?: RequestInit) {
+  constructor(baseURL: string, options?: AxiosRequestConfig) {
     const requestClient = new RequestClient(baseURL, options);
 
     const movieService = new MovieAPIService(requestClient);

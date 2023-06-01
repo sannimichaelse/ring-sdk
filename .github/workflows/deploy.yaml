@@ -17,16 +17,20 @@ jobs:
         with:
           node-version: 14
 
+      - name: Set token
+        run: npm config set //registry.npmjs.org/:_authToken="${{secrets.NPM_AUTH_TOKEN}}"
+
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Install specific typescript version
+        run: npm install typescript@4.7.4 -g
 
       - name: Build SDK
         run: npm run build
 
+      - name: Run tests
+        run: npm test
+
       - name: Publish to npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npm publish --access public
+        run: npm publish
