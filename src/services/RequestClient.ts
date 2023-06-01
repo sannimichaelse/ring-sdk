@@ -4,18 +4,30 @@ import { ErrorHandlingMiddleware } from "../utils/errorHandlingMiddleware";
 export class RequestClient {
   private httpClient: AxiosInstance;
   private errorMiddleware: ErrorHandlingMiddleware;
+  private baseUrl: string;
 
-  constructor(baseURL: string, headers?: any) {
+  constructor(baseUrl: string, headers?: any) {
     this.httpClient = axios.create({
-      baseURL,
       headers,
     });
     this.errorMiddleware = new ErrorHandlingMiddleware();
+    this.baseUrl = baseUrl;
+  }
+
+  private getCompleteUrl(endpointPath: string): string {
+    return `${this.baseUrl}${endpointPath}`;
   }
 
   async makeRequest<T>(config: AxiosRequestConfig): Promise<T> {
     try {
-      const response: AxiosResponse<T> = await this.httpClient(config);
+      const completeUrl = this.getCompleteUrl(config.url!);
+      console.log('completeUrl')
+      console.log(completeUrl)
+      console.log(config.headers)
+      const response: AxiosResponse<T> = await this.httpClient({
+        ...config,
+        url: completeUrl,
+      });
       return response.data;
     } catch (error) {
       throw this.errorMiddleware.handleResponseError(error);
