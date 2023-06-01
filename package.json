@@ -1,0 +1,54 @@
+{
+  "name": "ring-sdk",
+  "version": "1.0.0",
+  "description": "SDK for the rings api",
+  "keywords": [
+    "typescript",
+    "template"
+  ],
+  "author": {
+    "name": " Michael Sanni",
+    "url": "https://blog.softsignatureslab.com"
+  },
+  "engines": {
+    "node": "19.8.1"
+  },
+  "license": "BSD-3-Clause",
+  "main": "parser.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ext .ts --fix src/**/*.ts test/**/*.ts",
+    "test": "mocha --timeout 20000 --exit"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/express": "^4.17.17",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.0.0",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "chai": "^4.3.7",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.35.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
+    "typescript": "^5.0.2",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "commander": "^10.0.1",
+    "node-fetch": "^3.3.1",
+    "supertest": "^6.3.3"
+  }
+}
