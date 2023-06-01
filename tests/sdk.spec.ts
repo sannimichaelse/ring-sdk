@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import { RingSDK } from "../src/sdk";
+import { RingSDK } from "../src";
 
 describe("RingSDK", () => {
   // Test the initialization of the SDK

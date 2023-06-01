@@ -1,44 +1,20 @@
-import { RingSDK } from "./sdk";
+import { AxiosRequestConfig } from "axios";
+import { MoviesAPI, QuotesAPI } from "./api";
+import { RequestClient } from "./services/RequestClient";
+import { MovieAPIService } from "./services/MovieApiService";
+import { QuoteAPIService } from "./services/QuoteApiService";
 
-// Create an instance of the SDK
-const client = new RingSDK("https://api.example.com", {
-  headers: {
-    Authorization: "Bearer your_token",
-  },
-});
+export class RingSDK {
+  movies: MoviesAPI;
+  quotes: QuotesAPI;
 
-// Example usage with async/await
-(async () => {
-  try {
-    const movies = await client.movies.getAllMovies();
-    console.log("Movies:", movies);
-  } catch (error) {
-    console.error("Error:", error);
+  constructor(baseURL: string, options?: AxiosRequestConfig) {
+    const requestClient = new RequestClient(baseURL, options);
+
+    const movieService = new MovieAPIService(requestClient);
+    const quoteService = new QuoteAPIService(requestClient);
+
+    this.movies = new MoviesAPI(movieService);
+    this.quotes = new QuotesAPI(quoteService);
   }
-
-  try {
-    const quotes = await client.quotes.getAllQuotes();
-    console.log("Quotes:", quotes);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-})();
-
-// Example usage with promises
-client.movies
-  .getAllMovies()
-  .then((movies) => {
-    console.log("Movies:", movies);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
-
-client.quotes
-  .getAllQuotes()
-  .then((quotes) => {
-    console.log("Quotes:", quotes);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+}

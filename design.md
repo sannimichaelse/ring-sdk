@@ -21,14 +21,12 @@ src/
 │   ├── MovieApiService.ts
 │   └── QuoteApiService.ts
 ├── index.ts
-└── sdk.ts
 ```
 
 - The api folder contains the API-related code, including endpoint definitions and the API entry point.
 - The models folder contains the data models used in the SDK, such as Movie and Quote.
 - The services folder contains the service classes responsible for handling API requests and responses.
 - The index.ts file is the entry point of the SDK, exposing the RingSDK class.
-- The sdk.ts file contains the implementation of the RingSDK class.
 
 ## Design Decisions
 
